@@ -2,17 +2,14 @@
 const express = require('express')
 const router = express.Router()
 
-// Підключіть файли роутів
-// const test = require('./test')
-// Підключіть інші файли роутів, якщо є
+// Import auth routes
+const auth = require('./auth');
 
-// Об'єднайте файли роутів за потреби
-// router.use('/', test)
-// Використовуйте інші файли роутів, якщо є
+// Use the auth routes
+router.use('/auth', auth);
 
 router.get('/', (req, res) => {
   res.status(200).json('Hello World')
 })
 
-// Експортуємо глобальний роутер
 module.exports = router

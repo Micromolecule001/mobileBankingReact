@@ -1,0 +1,48 @@
+.content {
+    height: 100%;
+    margin: 10px 20px;
+}
+
+.content-wrapper,
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: #121212;
+}
+
+.description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: center;
+    color: #939199;
+}
+
+.form-wrapper {
+    margin-top: 32px;
+    width: 100%;
+}
+
+.restore-p {
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.error-password__active {
+    color: red;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: left;
+}

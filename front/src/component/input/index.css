@@ -1,0 +1,40 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.inputLabel {
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 20px 16px;
+    border: 1px solid #E9E8EB;
+    border-radius: 12px;
+}
+
+input:focus {
+    border: 1px solid #775CE5;
+}
+
+.input-border-error {
+    border-color: red;
+    color: red; 
+}
+
+.label-error {
+    color: red;
+}
+
+.input-border-error {
+    border: 1px solid red;
+}
+
+.error-password__active {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
