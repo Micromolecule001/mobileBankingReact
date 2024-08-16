@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from './container/mainPage';
 import SignIn from './container/signIn';
 import Recovery from './container/recovery';
+import RecoveryConfirm from './container/recovery-confirm';
 import SignUp from './container/signUp';
 import SignUpConfirm from './container/signUpConfirm';
 
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/" element={<MainPage />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/recovery" element={<Recovery />} />
+          <Route path="/recovery-confirm" element={<RecoveryConfirm />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signup-confirm" element={<SignUpConfirm />} />
       </Routes>

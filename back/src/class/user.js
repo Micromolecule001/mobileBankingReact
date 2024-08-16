@@ -2,10 +2,10 @@ class User {
     static #list = {
         123: {
             email: 'asd@asd.asd',
-            password: 'qwerty',
+            password: 'Qwerty',
             isConfirmed: false,
-            confirmationCode: null,
-            recoveryCode: null,
+            confirmationCode: 'wwwwww',
+            recoveryCode: 'qqqqqq',
         }
     };
 
@@ -39,10 +39,19 @@ class User {
         return Object.values(this.#list).find(user => user.email === email);
     }
 
-    static verifyCode = (email, code) => {
-        const user = this.getUserByEmail(email);
+    static verifyCode = (email, code, type) => {
+
+        if (type === 1) {
+            const user = this.getUserByEmail(email);
         if (user && user.confirmationCode === code) {
             user.isConfirmed = true;
+            return true;
+        }
+        return false;
+        }
+
+        const user = this.getUserByEmail(email);
+        if (user && user.recoveryCode === code) {
             return true;
         }
         return false;
@@ -57,6 +66,11 @@ class User {
         }
         return result;
     }
+
+    static auth = (email, password) => {
+        const user = this.getUserByEmail(email)
+        return (user.email === email && user.password === password) ? true : false
+    }       
 }
 
 module.exports = User;

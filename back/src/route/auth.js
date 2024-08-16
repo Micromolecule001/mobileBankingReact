@@ -4,11 +4,35 @@ const router = express.Router();
 const User = require('../class/user');
 
 router.post('/signin', (req, res) => {
-  const { username, password } = req.body;
-  if (username === 'admin' && password === 'password') {
+  const { email, password } = req.body;
+
+  console.log(email, password)
+
+  if (User.auth(email, password)) {
     res.status(200).json({ message: 'Sign in successful!' });
   } else {
     res.status(401).json({ message: 'Invalid credentials' });
+  }
+});
+
+router.post('/recovery', (req, res) => {
+  const { email } = req.body
+  console.log( email )
+
+  if (User.getUserByEmail) {
+    res.status(200).json({ message: 'User is exist'})
+  } else {
+    res.status(401).json({ message: 'No such as user'})
+  }
+});
+
+router.post('/recovery-confirm', (req, res) => {
+  const { email, code } = req.body;
+
+  if (User.verifyCode(email, code, 0)) {
+    res.status(200).json({ message: 'Account confirmed and logged in.' });
+  } else {
+    res.status(400).json({ message: 'Invalid confirmation code.' });
   }
 });
 
@@ -35,9 +59,8 @@ router.post('/signup', (req, res) => {
 
 
 router.post('/signup-confirm', (req, res) => {
-  console.log('post signup-confirm')
   const { email, code } = req.body;
-  if (User.verifyCode(email, code)) {
+  if (User.verifyCode(email, code, 1)) {
     res.status(200).json({ message: 'Account confirmed and logged in.' });
   } else {
     res.status(400).json({ message: 'Invalid confirmation code.' });

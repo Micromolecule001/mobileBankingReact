@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 import './index.css';
 
 import Header from '../../component/statusBar';
@@ -10,10 +12,26 @@ import Footer from '../../component/footer';
 const Recovery = () => {
   const [email, setEmail] = useState<string>("")
   const [errors, setErrors] = useState<{ email?: string }>({});
-  
+  const navigate = useNavigate()
+
   const handleCodeInput = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('handle')
+
+    try {
+      const res = await fetch('http://localhost:4000/auth/recovery', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email })
+      });
+
+      if (res.ok) {
+        navigate('/recovery-confirm', { state: { email } });        
+      }
+    } catch (error) {
+      console.error('Error during sign up:', error)
+    }
   };
 
   return (

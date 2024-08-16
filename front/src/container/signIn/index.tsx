@@ -24,7 +24,7 @@ const SignIn = () => {
     return emailPattern.test(email);
   }; // checking by regex, then return :BOOLEAN 
 
-  const handleSignIn = (e: React.FormEvent) => {
+  const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault() // ensuring the browser does not refresh the page
 
     const newErrors: { email?: string; password?: string } = {};
@@ -42,6 +42,22 @@ const SignIn = () => {
     } else {
       setErrors({});
       console.log('Form submitted:', { email, password });
+    }
+
+    try {
+      const res = await fetch('http://localhost:4000/auth/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      })
+
+      if (res.ok) {
+        window.location.href = '/';
+      }
+    } catch (error) {
+      console.error('Error during sign in:', error)
     }
   };
 
