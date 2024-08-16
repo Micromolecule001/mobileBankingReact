@@ -19,7 +19,7 @@ router.post('/recovery', (req, res) => {
   const { email } = req.body
   console.log( email )
 
-  if (User.getUserByEmail) {
+  if (User.getUserByEmail(email)) {
     res.status(200).json({ message: 'User is exist'})
   } else {
     res.status(401).json({ message: 'No such as user'})

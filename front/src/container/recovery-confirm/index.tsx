@@ -28,9 +28,13 @@ const RecoveryConfirm = () => {
         },
         body: JSON.stringify({ email, code })
       });
+      
+      const result = await res.json()
 
       if (res.ok) {
         window.location.href = '/'       
+      } else {
+        setErrors({ code: result.message });
       }
     } catch (error) {
       console.error('Error during sign up:', error)

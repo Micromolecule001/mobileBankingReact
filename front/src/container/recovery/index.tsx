@@ -26,8 +26,12 @@ const Recovery = () => {
         body: JSON.stringify({ email })
       });
 
+      const result = await res.json() 
+
       if (res.ok) {
         navigate('/recovery-confirm', { state: { email } });        
+      } else {
+        setErrors({ email: result.message });
       }
     } catch (error) {
       console.error('Error during sign up:', error)
