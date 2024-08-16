@@ -26,7 +26,7 @@ const SignUpConfirm = () => {
         body: JSON.stringify({ email: email, code: code }),
     });
 
-    const result = await res.json(); //  back end sending me the error 
+    const result = await res.json(); //  back end sending me the error
 
     if (res.ok) {
       window.location.href = '/';

@@ -16,31 +16,49 @@ const RecoveryConfirm = () => {
 
   const location = useLocation();
   const { email } = location.state || { email: ''}
-    
+  
+  const validatePassword = (password: string): boolean => {
+    const hasCapitalLetter = /[A-Z]/.test(password);
+    const isLongEnough = password.length >= 8;
+    return hasCapitalLetter && isLongEnough;
+  }; // checking capital letter and length, then return :BOOLEAN 
+
   const handleCodeInput = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    try {
-      const res = await fetch('http://localhost:4000/auth/recovery-confirm', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, code })
-      });
-      
-      const result = await res.json()
+    const newErrors: { email?: string; password?: string, exist?: string } = {}
 
-      if (res.ok) {
-        window.location.href = '/'       
-      } else {
-        setErrors({ code: result.message });
-      }
-    } catch (error) {
-      console.error('Error during sign up:', error)
+    if (!validatePassword(password)) {
+      newErrors.password = "Sorry, the password is too simple.";
     }
-  };
 
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
+      setErrors({});
+
+      try {
+        const res = await fetch('http://localhost:4000/auth/recovery-confirm', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, code })
+        });
+        
+        const result = await res.json()
+
+        if (res.ok) {
+          window.location.href = '/'       
+        } else {
+          setErrors({ code: result.message });
+        }
+      } catch (error) {
+        console.error('Error during sign up:', error)
+      }
+    };
+  }
+  
   return (
     <div className='container'>
       <Header color={'black'}/>
