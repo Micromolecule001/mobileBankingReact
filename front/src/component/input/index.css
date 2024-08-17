@@ -1,9 +1,25 @@
 .input-wrapper {
+    position: absolute;
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
-    margin-bottom: 10px;
+    height: 90px;
+}
+
+.icon {
+    position: relative;
+    top: -40px;
+    left: 320px;
+    cursor: pointer;
+}
+
+.constIcon {
+    color: darkgray;
+}
+
+.icon-error {
+    color: red;
 }
 
 .inputLabel {

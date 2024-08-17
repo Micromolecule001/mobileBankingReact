@@ -65,8 +65,12 @@ const SignUp = () => {
           body: JSON.stringify({ email, password })
         });
 
+        const result = await res.json()
+
         if (res.ok) {
           navigate('/signup-confirm', { state: { email } });        
+        } else {
+          setErrors({ exist: result.message });
         }
       } catch (error) {
         console.error('Error during sign up:', error)

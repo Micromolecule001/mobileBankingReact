@@ -43,17 +43,21 @@ class User {
 
         if (type === 1) {
             const user = this.getUserByEmail(email);
-        if (user && user.confirmationCode === code) {
-            user.isConfirmed = true;
-            return true;
-        }
-        return false;
+            
+            if (user && user.confirmationCode === code) {
+                user.isConfirmed = true;
+                return true;
+            }
+
+            return false;
         }
 
         const user = this.getUserByEmail(email);
+        
         if (user && user.recoveryCode === code) {
             return true;
         }
+        
         return false;
     }
 
