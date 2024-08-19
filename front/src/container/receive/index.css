@@ -1,0 +1,60 @@
+.receive-container {
+    background: rgba(247, 247, 247, 1);
+}
+
+.content {
+    height: 100%;
+    margin: 10px 20px;
+}
+
+.receive-title {
+    position: absolute;
+    left: calc(50% - 35px);
+    bottom: 830px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+}
+
+.receive-content {
+    margin: 32px 20px;
+}
+
+.divider {
+    border: 1px solid rgba(235, 235, 235, 1);
+    margin: 20px 0px;
+}
+
+.div-button {
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+    margin: 12px 0px;
+    background: white;
+    border-radius: 12px; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-buttonSide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-p {
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+}
+
+.mini-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

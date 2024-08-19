@@ -1,0 +1,68 @@
+.payments-content {
+    height: 100%;
+    margin: 88px 20px;
+}
+
+.wallet-text-wrapper {
+    background-image: url("C:\Projects\fullstack-2\front\src\img\walletbg.png");
+    height: 200px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 8px 20px;
+    color: white;
+    align-items: center;
+}
+
+.money {
+    color: white;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    margin: 16px 0px;
+}
+
+.cents {
+    font-weight: 300;
+}
+
+.buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn-wrapper {
+    margin: 12px 6px;    
+}
+
+.btn-wrapper>button {
+    border: 12px solid white;
+    background: rgba(91, 148, 233, 1);
+    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+
+.noPayments {
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    margin: 40px;
+}

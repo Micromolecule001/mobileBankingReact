@@ -1,0 +1,58 @@
+.paymentData-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.payment-wrapper {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    margin: 16px 0px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-icon {
+    display: flex;
+}
+
+.custom-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(247, 247, 247, 1);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.text-wrapper {
+    margin: 6px 12px;
+}
+
+.payment-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.payment-description {
+    color: rgba(147, 145, 153, 1);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: left;
+}
+
+.amount {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
+}
+
+.cents {
+    font-weight: 400;
+}

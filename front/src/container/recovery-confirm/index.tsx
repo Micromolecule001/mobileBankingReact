@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import './index.css';
 
@@ -14,6 +14,7 @@ const RecoveryConfirm = () => {
   const [password, setPassword] = useState<string>("")
   const [errors, setErrors] = useState<{ code?: string; password?: string }>({});
 
+  const navigate = useNavigate()
   const location = useLocation();
   const { email } = location.state || { email: ''}
   
@@ -49,7 +50,7 @@ const RecoveryConfirm = () => {
         const result = await res.json()
 
         if (res.ok) {
-          window.location.href = '/'       
+          navigate('/main', { state: { email } });       
         } else {
           setErrors({ code: result.message });
         }

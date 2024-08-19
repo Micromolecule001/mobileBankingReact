@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './index.css';
 
 import Header from '../../component/statusBar';
@@ -12,6 +12,7 @@ const SignUpConfirm = () => {
   const [code, setCode] = useState<string>("")
   const [errors, setErrors] = useState<{ code?: string }>({});
   
+  const navigate = useNavigate()
   const location = useLocation();
   const { email } = location.state || { email: ''}
 
@@ -29,7 +30,7 @@ const SignUpConfirm = () => {
     const result = await res.json(); //  back end sending me the error
 
     if (res.ok) {
-      window.location.href = '/';
+      navigate('/main', { state: { email } });;
     } else {
         // Handle error (e.g., set errors)
         setErrors({ code: result.message });

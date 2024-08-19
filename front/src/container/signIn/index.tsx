@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './index.css';
 
 import Header from '../../component/statusBar';
@@ -12,6 +13,7 @@ const SignIn = () => {
   const [password, setPassword] = useState<string>('');
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
 
+  const navigate = useNavigate()
   
   const validatePassword = (password: string): boolean => {
     const hasCapitalLetter = /[A-Z]/.test(password);
@@ -54,7 +56,7 @@ const SignIn = () => {
       })
 
       if (res.ok) {
-        window.location.href = '/';
+        navigate('/main', { state: { email } });;
       }
     } catch (error) {
       console.error('Error during sign in:', error)

@@ -1,0 +1,26 @@
+.send-title {
+    position: absolute;
+    left: calc(50% - 35px);
+    bottom: 893px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+}
+
+.receive-content>.input-wrapper,  
+.receive-content>button {
+    margin-top: 20px;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 100px;
+    margin-top: 20px;
+    border-radius: 12px;
+    color: white;
+    background: rgba(119, 92, 229, 1);
+    cursor: pointer;
+}

@@ -6,6 +6,8 @@ class User {
             isConfirmed: false,
             confirmationCode: 'wwwwww',
             recoveryCode: 'qqqqqq',
+            balance: {dollars: 0, cents: '00'},
+            payments: []
         }
     };
 
@@ -16,6 +18,39 @@ class User {
         this.isConfirmed = isConfirmed;
         this.confirmationCode = User.generateCode();
         this.recoveryCode = User.generateCode();
+        this.balance = {dollars: 0, cents: '00'};
+        this.payments = [];
+    }
+
+    static addPayment(payment, email) {
+        const user = User.getUserByEmail(email)
+        user.payments.push(payment)
+
+        this.handleBalance(user)
+        
+        return true
+    }
+
+    static handleBalance = (user) => {
+        let totalDollars = 0;
+        let totalCents = 0;
+
+        user.payments.forEach(payment => {
+            const { dollars, cents } = payment.amount;
+            const multiplier = payment.type === '+' ? 1 : -1;
+
+            totalDollars += multiplier * parseInt(dollars, 10);
+            totalCents += multiplier * parseInt(Number(cents), 10);
+        });
+
+        // Convert cents to dollars if necessary
+        totalDollars += Math.floor(totalCents / 100);
+        const formattedCents = cents < 10 ? `0${cents}` : cents
+
+        // Adjust the user's balance
+        user.balance.dollars = totalDollars;
+        user.balance.cents = formattedCents;
+        return true
     }
 
     static createId = () => {
@@ -74,7 +109,8 @@ class User {
     static auth = (email, password) => {
         const user = this.getUserByEmail(email)
         return (user.email === email && user.password === password) ? true : false
-    }       
+    }
+    
 }
 
 module.exports = User;
