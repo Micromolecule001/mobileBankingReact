@@ -16,7 +16,7 @@ router.post('/main', (req, res) => {
 
 router.post('/receive', (req, res) => {
   const { amount, email, from } = req.body;
-
+  
   // Convert amount to a float
   const amountFloat = parseFloat(amount);
 

@@ -22,7 +22,7 @@ const Receive = () => {
 
   const handleReceive = async (e: React.MouseEvent<HTMLDivElement>) => {
     const id = e.currentTarget.id;
-    console.log(amount)
+
     try {
       const res = await fetch('http://localhost:4000/wallet/receive', {
         method: 'POST',
