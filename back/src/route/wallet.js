@@ -66,7 +66,7 @@ router.post('/send', (req, res) => {
   // Create payment instance with split amount
   const payment = new Payment(email, null, to, '-', { dollars, cents: formattedCents });
   const result = User.addPayment(payment, email);
-  
+
   const paymentTo = new Payment(to, email, null, '+', { dollars, cents: formattedCents })
   User.addPayment(paymentTo, to)
 

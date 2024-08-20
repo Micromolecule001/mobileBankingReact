@@ -24,16 +24,18 @@ class User {
 
     static addPayment(payment, email) {
         const user = User.getUserByEmail(email)
-        user.payments.push(payment)
-        
-        this.handleBalance(user)
-    
-        return true
+        if(user) {
+            user.payments.push(payment)
+            this.handleBalance(user)
+            return true
+        }
+
+        return false
     }
 
     static handleBalance = (user) => {
         let totalDollars = 0;
-        let totalCents = 0; // Initialize as a number
+        let totalCents = 0;
     
         user.payments.forEach(payment => {
             const { dollars, cents } = payment.amount;
@@ -42,18 +44,17 @@ class User {
             totalDollars += multiplier * parseInt(dollars, 10);
             totalCents += multiplier * parseInt(cents, 10);
         });
-    
+        
         // Convert cents to dollars if necessary
         totalDollars += Math.floor(totalCents / 100);
         totalCents = totalCents % 100;
     
         // Ensure cents are always formatted as two digits
         const formattedCents = totalCents < 10 ? `0${totalCents}` : `${totalCents}`;
-    
+        
         // Adjust the user's balance
         user.balance.dollars = totalDollars;
         user.balance.cents = formattedCents;
-        
         return true;
     }
 

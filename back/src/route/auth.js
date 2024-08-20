@@ -6,8 +6,6 @@ const User = require('../class/user');
 router.post('/signin', (req, res) => {
   const { email, password } = req.body;
 
-  console.log(email, password)
-
   if (User.auth(email, password)) {
     res.status(200).json({ message: 'Sign in successful!' });
   } else {
@@ -17,7 +15,6 @@ router.post('/signin', (req, res) => {
 
 router.post('/recovery', (req, res) => {
   const { email } = req.body
-  console.log( email )
 
   if (User.getUserByEmail(email)) {
     res.status(200).json({ message: 'User is exist'})
