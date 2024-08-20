@@ -20,10 +20,10 @@ const MainPage = () => {
       </div>
 
       <div className="main-button-wrapper">
-        <Button primary={true} onClick={() => navigate('/signup')} type={'button'}>
+        <Button  id={'signUpLink'} primary={true} onClick={() => navigate('/signup')} type={'button'}>
           <p className='button-text' >Sign up</p>
         </Button>
-        <Button onClick={() => navigate('/signin')} type={'button'}>Sign in</Button>
+        <Button id={'signInLink'} onClick={() => navigate('/signin')} type={'button'}>Sign in</Button>
       </div>
 
       <Footer />

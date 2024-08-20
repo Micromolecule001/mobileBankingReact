@@ -111,7 +111,7 @@ const SignIn = () => {
 
               <p className='restore-p'>Forgot your password? <a href="/recovery">Restore</a></p>
 
-              <Button primary={true} type={'submit'}>
+              <Button id={'continue'} primary={true} type={'submit'}>
                 <p className='button-text'> Continue </p>
               </Button>
             </form>

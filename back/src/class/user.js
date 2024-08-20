@@ -22,7 +22,39 @@ class User {
         this.payments = [];
     }
 
-    static addPayment(payment, email) {
+    static changeEmail = (oldEmail, newEmail, oldPassword ) => {
+        const user = User.getUserByEmail(oldEmail)
+        console.log(user)
+        if (!user) {
+            return false
+        }
+
+        if (user.password === oldPassword) {
+            user.email = newEmail
+            console.log(user)
+            return true
+        }
+
+        return false
+    }
+
+    static changePassword = (oldEmail, newPassword, oldPassword ) => {
+        const user = User.getUserByEmail(oldEmail)
+        console.log(user)
+        if (!user) {
+            return false
+        }
+        
+        if (user.password === oldPassword) {
+            user.password = newPassword
+            console.log(user)
+            return true
+        }
+
+        return false
+    }
+
+    static addPayment = (payment, email) => {
         const user = User.getUserByEmail(email)
         if(user) {
             user.payments.push(payment)

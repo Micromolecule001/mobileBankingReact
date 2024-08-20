@@ -3,6 +3,10 @@
     margin: 88px 20px;
 }
 
+.nav-icon {
+    cursor: pointer;
+}
+
 .wallet-text-wrapper {
     background-image: url("C:\Projects\fullstack-2\front\src\img\walletbg.png");
     height: 200px;

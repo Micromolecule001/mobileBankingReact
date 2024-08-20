@@ -68,7 +68,7 @@ const Recovery = () => {
                       <p className="error-password__active">{errors.email}</p>
                     )}
 
-                    <Button primary={true} type={'submit'}>
+                    <Button id={'sendCode'} primary={true} type={'submit'}>
                       <p className='button-text'> Send code </p>
                     </Button>
                   </form>

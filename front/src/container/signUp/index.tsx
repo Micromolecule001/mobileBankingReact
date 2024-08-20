@@ -127,7 +127,7 @@ const SignUp = () => {
                 
                     <p className="haveAccount"> Already have an account? <a href="/signIn" className="signIn"> Sign In </a></p>
                   
-                    <Button primary={true} type={'submit'}>
+                    <Button id={'continue'} primary={true} type={'submit'}>
                       <p className='button-text'> Continue </p>
                     </Button>
 

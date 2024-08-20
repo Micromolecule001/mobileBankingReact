@@ -14,6 +14,7 @@ import Wallet from './container/mainWallet';
 import PaymentInfo from './container/paymentInfo';
 import Receive from './container/receive';  
 import Send from './container/send';
+import Settings from './container/settings';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/payment-info" element={<PaymentInfo />} />
           <Route path="/receive" element={<Receive />} />
           <Route path="/send" element={<Send />} />
+          <Route path="/settings" element={<Settings />} />
       </Routes>
     </Router>
   );

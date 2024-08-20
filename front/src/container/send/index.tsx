@@ -79,10 +79,6 @@ const Send = () => {
           onChange={handleAmountChange}
         />
 
-        {/* <Button primary={true} onClick={() => handleSend} type={'button'}>
-          <p className='button-text' >Send</p>
-        </Button> */}
-
         <div className="buttonDiv" onClick={handleSend}>
           <p className="buttonDiv-title"> Send </p>
         </div>

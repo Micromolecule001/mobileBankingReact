@@ -77,4 +77,26 @@ router.post('/send', (req, res) => {
   }
 });
 
+router.post('/settings', (req, res) => {
+  const { email, method } = req.body;
+
+  console.log( email, method )
+
+  if (method.type === 'changeEmail') {
+    const result = User.changeEmail(email, method.newEmail, method.oldPassword)
+    
+    result 
+      ? res.status(200).json({ message: 'Payment processed successfully.' }) 
+      : res.status(400).json({ message: 'Wrong password.' });
+  } else if (method.type === 'changePassword') {
+    const result = User.changePassword(email, method.newPassword, method.oldPassword)
+    
+    result 
+      ? res.status(200).json({ message: 'Payment processed successfully.' }) 
+      : res.status(400).json({ message: 'Wrong password.' });
+  }
+  
+  res.status(400).json({ message: 'Wrong method.' });
+});
+
 module.exports = router;

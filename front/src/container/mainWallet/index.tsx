@@ -61,7 +61,7 @@ const Wallet = () => {
       <div className="wallet-text-wrapper">
         <Header color={'white'} />
         <div className="navigation">
-          <div className="nav-icon">
+          <div className="nav-icon" onClick={() => navigate('/settings', { state: {email: email}})}>
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="3.57672" y1="6.25" x2="6.07672" y2="6.25" stroke="#F3F5FF" strokeWidth="1.5" strokeLinecap="round"/>
               <line x1="22.0767" y1="16.75" x2="19.5767" y2="16.75" stroke="#F3F5FF" strokeWidth="1.5" strokeLinecap="round"/>

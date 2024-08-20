@@ -9,7 +9,7 @@
 
 .icon {
     position: relative;
-    top: -40px;
+    top: -37px;
     left: 320px;
     cursor: pointer;
 }
@@ -27,6 +27,10 @@
 }
 
 input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 54px;
     padding: 20px 16px;
     border: 1px solid #E9E8EB;
     border-radius: 12px;
@@ -53,5 +57,5 @@ input:focus {
 .error-password__active {
     color: red;
     font-size: 12px;
-    margin-top: 5px;
+    margin-bottom: 0px;
 }

@@ -67,7 +67,7 @@ const SignUpConfirm = () => {
                       <p className="error-password__active">{errors.code}</p>
                     )}
 
-                    <Button primary={true} type={'submit'}>
+                    <Button id={'confirm'} primary={true} type={'submit'}>
                       <p className='button-text'> Confirm </p>
                     </Button>
                   </form>
